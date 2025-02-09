@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICK TICK BOOM</title>
+    <style type="text/css">
+        body {
+        font-family: 'Impact', sans-serif;
+        background-color: skyblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        }
+
+        .game-title {
+        font-family: 'Impact', sans-serif;
+        color: black;
+        text-align: center;
+        font-size: 60px;
+        margin: 20px 0;
+        }
+
+        #intro {
+        text-align: center;
+        background-color: rgba(255, 165, 0, 0.9); /* Chunky orange panel with some transparency */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+        font-size: 50px;
+        color: white;
+        margin-bottom: 20px;
+        }
+
+        label {
+        font-size: 25px;
+        color: white;
+        }
+
+        input[type="text"] {
+        font-family: 'Impact', sans-serif;
+        font-size: 20px;
+        padding: 10px;
+        border: 3px solid white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"]::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+        font-family: 'Impact', sans-serif;
+        font-size: 30px;
+        background-color: orange;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease-in-out;
+        }
+
+        button:hover {
+        background-color: darkorange;
+        transform: scale(1.1);
+        }
+
+        canvas {
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div id="intro">
+        <h1 class="game-title">TICK TICK BOOM</h1>
+        <h1>Enter Player Names</h1>
+        <label>Player 1: <input type="text" id="player1Name" placeholder="Player 1"></label><br><br>
+        <label>Player 2: <input type="text" id="player2Name" placeholder="Player 2"></label><br><br>
+        <button id="startGame">Start Game</button>
+    </div>
+   
+
+    <canvas id="canvas"></canvas>
+    <script src="main.js"></script>
+</body>
+
+</html>
