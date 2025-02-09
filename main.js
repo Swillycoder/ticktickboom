@@ -4,9 +4,9 @@ const ctx = canvas.getContext('2d');
 canvas.width = 960;
 canvas.height = 500;
 
-const jump = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/jump.ogg')
-const music = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/joyful_jungle.mp3')
-const boom = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/boom.ogg')
+const jump = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/jump.ogg')
+const music = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/joyful_jungle.mp3')
+const boom = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/boom.ogg')
 jump.volume = 0.3;
 music.volume = 0.8;
 
@@ -26,21 +26,21 @@ const bomb = new Image();
 const intro = new Image();
 const outro = new Image();
 
-platformLarge.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/platform.png';
-platformSmall.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/platform_sml.png';
-bg.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/bg.png';
-grass.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/grass.png';
-standL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_l.png';
-standR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_r.png';
-runL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_l.png';
-runR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_r.png';
-standL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_l2.png';
-standR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_r2.png';
-runL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_l2.png';
-runR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_r2.png';
-bomb.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/bomb.png';
-intro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/intro.png';
-outro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/outro.png';
+platformLarge.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png';
+platformSmall.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png';
+bg.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png';
+grass.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/grass.png';
+standL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l.png';
+standR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r.png';
+runL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l.png';
+runR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboommain//run_r.png';
+standL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l2.png';
+standR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r2.png';
+runL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l2.png';
+runR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_r2.png';
+bomb.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bomb.png';
+intro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png';
+outro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png';
 
 
 const introDiv = document.getElementById('intro');
