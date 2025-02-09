@@ -354,6 +354,42 @@ function resetGame() {
     stopMusic();
 }
 
+function loadImage(src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+        img.src = src;
+    });
+}
+
+async function loadImages() {
+    try {
+        platformLarge = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png');
+        platformSmall = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png');
+        bg = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png');
+        grass = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/grass.png');
+        standL1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l.png');
+        standR1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r.png');
+        runL1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l.png');
+        runR1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main//run_r.png');
+        standL2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l2.png');
+        standR2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r2.png');
+        runL2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l2.png');
+        runR2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_r2.png');
+        bomb = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bomb.png');
+        intro = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png');
+        outro = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png');
+
+        // Start the game loop after all images are loaded
+        introScreen();
+        assignInitialBomb(player1, player2);
+        //gameLoop();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 let gameOver = true
 
 function gameLoop () {
@@ -384,8 +420,9 @@ function gameLoop () {
     }
 }
 
-introScreen();
-assignInitialBomb(player1, player2);
+//introScreen();
+//assignInitialBomb(player1, player2);
+loadImages();
 
 
 document.addEventListener('keydown', (e) => {
