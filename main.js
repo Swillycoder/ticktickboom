@@ -217,7 +217,7 @@ const keys = {
     KeyP: false,
     KeyN: false,
 };
-
+ /*
 const player1 = new Player(100,400, 'red', 'PLAYER1', 'SAM', standL1, standR1, runL1, runR1, standR1);
 const player2 = new Player(800, 400, 'blue', 'PLAYER2', 'AI', standL2, standR2, runL2, runR2, standL2)
 
@@ -237,7 +237,7 @@ const platforms = [
     new Platforms(0,100, 44, 25, platformSmall),
     new Platforms(916,100, 44, 25, platformSmall),
 ] 
-
+*/
 
 function introScreen () {
     const name1 = player1NameInput.value || 'PLAYER 1';
@@ -263,7 +263,7 @@ function checkCollision(player1, player2) {
     );
 }
 
-function handleTagging() {
+function handleTagging(player1, player2) {
     if (player1.tagged && checkCollision(player1, player2) && !player1.isSwitching &&!player2.isSwitching) {
         player1.tagged = false;
         player2.tagged = true;
@@ -335,7 +335,7 @@ function gameOverScreen () {
     ctx.fillText('Hit N for a New game', canvas.width/2, 430);
 }
 
-function resetGame() {
+function resetGame(player1, player2) {
     gameOver = false;
     player1.tagged = false;
     player2.tagged = false;
@@ -385,6 +385,26 @@ async function loadImages() {
         intro = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png');
         outro = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png');
 
+        const player1 = new Player(100, 400, 'red', 'PLAYER1', 'SAM', standL1, standR1, runL1, runR1, standR1);
+        const player2 = new Player(800, 400, 'blue', 'PLAYER2', 'AI', standL2, standR2, runL2, runR2, standL2);
+
+        const platforms = [
+            // Large platforms
+            new Platforms(100, 350, 150, 25, platformLarge),
+            new Platforms(700, 350, 150, 25, platformLarge),
+            new Platforms(250, 250, 150, 25, platformLarge),
+            new Platforms(550, 250, 150, 25, platformLarge),
+            new Platforms(100, 150, 150, 25, platformLarge),
+            new Platforms(700, 150, 150, 25, platformLarge),
+            new Platforms(canvas.width / 2 - 75, 100, 150, 25, platformLarge),
+            // Small Platforms
+            new Platforms(0, 250, 44, 25, platformSmall),
+            new Platforms(916, 250, 44, 25, platformSmall),
+            new Platforms(canvas.width / 2 - 15, 170, 44, 25, platformSmall),
+            new Platforms(0, 100, 44, 25, platformSmall),
+            new Platforms(916, 100, 44, 25, platformSmall),
+        ];
+
         // Start the game loop after all images are loaded
         introScreen();
         assignInitialBomb(player1, player2);
@@ -394,36 +414,40 @@ async function loadImages() {
     }
 }
 
-let gameOver = true
 
-function gameLoop () {
-    if (!gameOver) {
-        ctx.clearRect(0,0, canvas.width, canvas.height);
-        music.play();
+function gameLoop(player1, player2, platforms) {
+    let gameOver = true;
 
-        ctx.drawImage(bg,0,0);
-        ctx.drawImage(grass,0,canvas.height - 50);
+    function loop() {
+        if (!gameOver) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            music.play();
 
-        platforms.forEach(platform => {
+            ctx.drawImage(bg, 0, 0);
+            ctx.drawImage(grass, 0, canvas.height - 50);
+
+            platforms.forEach(platform => {
                 platform.draw();
             });
 
-        player1.update();
-        player2.update();
+            player1.update();
+            player2.update();
 
-        handleTagging();
-        timer();
+            handleTagging(player1, player2);
+            timer();
 
-        if (timeRemaining <= 0) {
-            boom.play();
-            gameOver = true
-            gameOverScreen();
+            if (timeRemaining <= 0) {
+                boom.play();
+                gameOver = true;
+                gameOverScreen(player1, player2);
+            }
+
+            requestAnimationFrame(loop);
         }
-
-        requestAnimationFrame(gameLoop);
     }
-}
 
+    loop();
+}
 //introScreen();
 //assignInitialBomb(player1, player2);
 loadImages();
@@ -463,7 +487,7 @@ document.addEventListener('keydown', (e) => {
     if (e.code === 'KeyP' && gameOver) {
         resetGame();
         startCountdown();
-        gameLoop();
+        gameLoop(player1, player2, platforms);
     }
     if (e.code === 'KeyN' && gameOver) {
         location.reload();
