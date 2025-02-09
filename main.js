@@ -9,7 +9,7 @@ const music = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickb
 const boom = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/boom.ogg')
 jump.volume = 0.3;
 music.volume = 0.8;
-
+/*
 const platformLarge = new Image();
 const platformSmall = new Image();
 const bg = new Image();
@@ -26,7 +26,7 @@ const bomb = new Image();
 const intro = new Image();
 const outro = new Image();
 
-/*
+
 platformLarge.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png';
 platformSmall.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png';
 bg.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png';
