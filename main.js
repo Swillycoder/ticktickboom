@@ -424,7 +424,7 @@ function gameLoop () {
 
 //introScreen();
 //assignInitialBomb(player1, player2);
-loadImages();
+loadImages(platformLarge);
 
 
 document.addEventListener('keydown', (e) => {
