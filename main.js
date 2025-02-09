@@ -365,6 +365,8 @@ function loadImage(src) {
     });
 }
 
+let platformLarge, platformSmall, bg, grass, standL1, standR1, runL1, runR1, standL2, standR2, runL2, runR2, bomb, intro, outro;
+
 async function loadImages() {
     try {
         platformLarge = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png');
