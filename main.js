@@ -9,41 +9,41 @@ const music = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickb
 const boom = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/boom.ogg')
 jump.volume = 0.3;
 music.volume = 0.8;
-/*
-const platformLarge = new Image();
-const platformSmall = new Image();
-const bg = new Image();
-const grass = new Image();
-const standL1 = new Image();
-const standR1 = new Image();
-const runL1 = new Image();
-const runR1 = new Image();
-const standL2 = new Image();
-const standR2 = new Image();
-const runL2 = new Image();
-const runR2 = new Image();
-const bomb = new Image();
-const intro = new Image();
-const outro = new Image();
 
+const images = {
+platformLarge: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png',
+platformSmall: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png',
+bg: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png',
+grass: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/grass.png',
+standL1: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l.png',
+standR1: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r.png',
+runL1: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l.png',
+runR1: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_r.png',
+standL2: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l2.png',
+standR2: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r2.png',
+runL2: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l2.png',
+runR2: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_r2.png',
+bomb: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bomb.png',
+intro: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png',
+outro: 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png',
+}
 
-platformLarge.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png';
-platformSmall.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png';
-bg.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png';
-grass.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/grass.png';
-standL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l.png';
-standR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r.png';
-runL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l.png';
-runR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboommain//run_r.png';
-standL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l2.png';
-standR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r2.png';
-runL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l2.png';
-runR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_r2.png';
-bomb.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bomb.png';
-intro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png';
-outro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png';
-*/
+function loadImages(callback) {
+    let loadedImages = 0;
+    const totalImages = Object.keys(images).length;
 
+    for (const key in images) {
+        const img = new Image();
+        img.onload = () => {
+            loadedImages++;
+            images[key] = img;  // Replace URL with the loaded image object
+            if (loadedImages === totalImages) {
+                callback();
+            }
+        };
+        img.src = images[key];
+    }
+}
 
 const introDiv = document.getElementById('intro');
 const player1NameInput = document.getElementById('player1Name');
@@ -217,32 +217,33 @@ const keys = {
     KeyP: false,
     KeyN: false,
 };
- /*
-const player1 = new Player(100,400, 'red', 'PLAYER1', 'SAM', standL1, standR1, runL1, runR1, standR1);
-const player2 = new Player(800, 400, 'blue', 'PLAYER2', 'AI', standL2, standR2, runL2, runR2, standL2)
+
+const player1 = new Player(100,400, 'red', 'PLAYER1', 'SAM', images.standL1, images.standR1, images.runL1, images.runR1, images.standR1);
+const player2 = new Player(800, 400, 'blue', 'PLAYER2', 'AI', images.standL2, images.standR2, images.runL2, images.runR2, images.standL2)
 
 const platforms = [
     //Large platforms
-    new Platforms(100,350, 150, 25, platformLarge),
-    new Platforms(700,350, 150, 25, platformLarge),
-    new Platforms(250,250, 150, 25, platformLarge),
-    new Platforms(550,250, 150, 25, platformLarge),
-    new Platforms(100,150, 150, 25, platformLarge),
-    new Platforms(700,150, 150, 25, platformLarge),
-    new Platforms(canvas.width/2 - 75, 100, 150, 25, platformLarge),
+    new Platforms(100,350, 150, 25, images.platformLarge),
+    new Platforms(700,350, 150, 25, images.platformLarge),
+    new Platforms(250,250, 150, 25, images.platformLarge),
+    new Platforms(550,250, 150, 25, images.platformLarge),
+    new Platforms(100,150, 150, 25, images.platformLarge),
+    new Platforms(700,150, 150, 25, images.platformLarge),
+    new Platforms(canvas.width/2 - 75, 100, 150, 25, images.platformLarge),
     //Small Platforms
-    new Platforms(0,250, 44, 25, platformSmall),
-    new Platforms(916,250, 44, 25, platformSmall),
-    new Platforms(canvas.width/2 - 15, 170, 44, 25, platformSmall),
-    new Platforms(0,100, 44, 25, platformSmall),
-    new Platforms(916,100, 44, 25, platformSmall),
+    new Platforms(0,250, 44, 25, images.platformSmall),
+    new Platforms(916,250, 44, 25, images.platformSmall),
+    new Platforms(canvas.width/2 - 15, 170, 44, 25, images.platformSmall),
+    new Platforms(0,100, 44, 25, images.platformSmall),
+    new Platforms(916,100, 44, 25, images.platformSmall),
 ] 
-*/
+
 
 function introScreen () {
+    assignInitialBomb(player1, player2);
     const name1 = player1NameInput.value || 'PLAYER 1';
     const name2 = player2NameInput.value || 'PLAYER 2';
-    ctx.drawImage(intro,0,0)
+    ctx.drawImage(images.intro,0,0)
     ctx.fillStyle = 'white'
     ctx.font = '30px Impact'
     ctx.textAlign = 'left'
@@ -263,7 +264,7 @@ function checkCollision(player1, player2) {
     );
 }
 
-function handleTagging(player1, player2) {
+function handleTagging() {
     if (player1.tagged && checkCollision(player1, player2) && !player1.isSwitching &&!player2.isSwitching) {
         player1.tagged = false;
         player2.tagged = true;
@@ -320,7 +321,7 @@ function stopMusic() {
 
 function gameOverScreen () {
     gameOver = true;
-    ctx.drawImage(outro,0,0)
+    ctx.drawImage(images.outro,0,0)
     ctx.font = '50px Impact';
     ctx.fillStyle = 'black'
     if (player1.tagged === true) {
@@ -335,7 +336,7 @@ function gameOverScreen () {
     ctx.fillText('Hit N for a New game', canvas.width/2, 430);
 }
 
-function resetGame(player1, player2) {
+function resetGame() {
     gameOver = false;
     player1.tagged = false;
     player2.tagged = false;
@@ -356,102 +357,40 @@ function resetGame(player1, player2) {
     stopMusic();
 }
 
-function loadImage(src) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
-        img.src = src;
-    });
-}
+let gameOver = true
 
-let platformLarge, platformSmall, bg, grass, standL1, standR1, runL1, runR1, standL2, standR2, runL2, runR2, bomb, intro, outro;
+function gameLoop () {
+    if (!gameOver) {
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        music.play();
 
-async function loadImages() {
-    try {
-        platformLarge = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png');
-        platformSmall = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png');
-        bg = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png');
-        grass = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/grass.png');
-        standL1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l.png');
-        standR1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r.png');
-        runL1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l.png');
-        runR1 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main//run_r.png');
-        standL2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_l2.png');
-        standR2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/standing_r2.png');
-        runL2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_l2.png');
-        runR2 = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run_r2.png');
-        bomb = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bomb.png');
-        intro = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png');
-        outro = await loadImage('https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png');
+        ctx.drawImage(images.bg,0,0);
+        ctx.drawImage(images.grass,0,canvas.height - 50);
 
-        const player1 = new Player(100, 400, 'red', 'PLAYER1', 'SAM', standL1, standR1, runL1, runR1, standR1);
-        const player2 = new Player(800, 400, 'blue', 'PLAYER2', 'AI', standL2, standR2, runL2, runR2, standL2);
-
-        const platforms = [
-            // Large platforms
-            new Platforms(100, 350, 150, 25, platformLarge),
-            new Platforms(700, 350, 150, 25, platformLarge),
-            new Platforms(250, 250, 150, 25, platformLarge),
-            new Platforms(550, 250, 150, 25, platformLarge),
-            new Platforms(100, 150, 150, 25, platformLarge),
-            new Platforms(700, 150, 150, 25, platformLarge),
-            new Platforms(canvas.width / 2 - 75, 100, 150, 25, platformLarge),
-            // Small Platforms
-            new Platforms(0, 250, 44, 25, platformSmall),
-            new Platforms(916, 250, 44, 25, platformSmall),
-            new Platforms(canvas.width / 2 - 15, 170, 44, 25, platformSmall),
-            new Platforms(0, 100, 44, 25, platformSmall),
-            new Platforms(916, 100, 44, 25, platformSmall),
-        ];
-
-        // Start the game loop after all images are loaded
-        introScreen();
-        assignInitialBomb(player1, player2);
-        //gameLoop();
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-
-function gameLoop(player1, player2, platforms) {
-    let gameOver = true;
-
-    function loop() {
-        if (!gameOver) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            music.play();
-
-            ctx.drawImage(bg, 0, 0);
-            ctx.drawImage(grass, 0, canvas.height - 50);
-
-            platforms.forEach(platform => {
+        platforms.forEach(platform => {
                 platform.draw();
             });
 
-            player1.update();
-            player2.update();
+        player1.update();
+        player2.update();
 
-            handleTagging(player1, player2);
-            timer();
+        handleTagging();
+        timer();
 
-            if (timeRemaining <= 0) {
-                boom.play();
-                gameOver = true;
-                gameOverScreen(player1, player2);
-            }
-
-            requestAnimationFrame(loop);
+        if (timeRemaining <= 0) {
+            boom.play();
+            gameOver = true
+            gameOverScreen();
         }
+
+        requestAnimationFrame(gameLoop);
     }
-
-    loop();
 }
-//introScreen();
-//assignInitialBomb(player1, player2);
-loadImages();
 
+loadImages(() => {
+    console.log("All images loaded!");
+    introScreen();
+});
 
 document.addEventListener('keydown', (e) => {
     if (keys.hasOwnProperty(e.code)) {
@@ -487,7 +426,7 @@ document.addEventListener('keydown', (e) => {
     if (e.code === 'KeyP' && gameOver) {
         resetGame();
         startCountdown();
-        gameLoop(player1, player2, platforms);
+        gameLoop();
     }
     if (e.code === 'KeyN' && gameOver) {
         location.reload();
