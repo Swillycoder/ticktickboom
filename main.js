@@ -298,7 +298,7 @@ function assignInitialBomb(player1, player2) {
 }
 
 let countdownStart;
-let countdownDuration = 3000;
+let countdownDuration = 60000;
 let timeRemaining;
 
 function startCountdown() {
