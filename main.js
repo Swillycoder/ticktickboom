@@ -242,7 +242,6 @@ function initializeGame() {
 }
 
 function introScreen() {
-    assignInitialBomb(player1, player2);
     const name1 = player1NameInput.value || 'PLAYER 1';
     const name2 = player2NameInput.value || 'PLAYER 2';
     ctx.drawImage(images.intro, 0, 0);
@@ -423,6 +422,7 @@ document.addEventListener('keydown', (e) => {
     }
     if (e.code === 'Space' && gameOver) {
         gameOver = false;
+        assignInitialBomb(player1, player2);
         gameLoop();
         startCountdown();
     }
