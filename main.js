@@ -26,6 +26,7 @@ const bomb = new Image();
 const intro = new Image();
 const outro = new Image();
 
+/*
 platformLarge.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform.png';
 platformSmall.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/platform_sml.png';
 bg.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bg.png';
@@ -41,6 +42,7 @@ runR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/run
 bomb.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/bomb.png';
 intro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/intro.png';
 outro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/main/outro.png';
+*/
 
 
 const introDiv = document.getElementById('intro');
