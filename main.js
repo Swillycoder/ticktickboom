@@ -26,21 +26,21 @@ const bomb = new Image();
 const intro = new Image();
 const outro = new Image();
 
-platformLarge.src = 'http://localhost:8000/images/platform.png';
-platformSmall.src = 'http://localhost:8000/images/platform_sml.png';
-bg.src = 'http://localhost:8000/images/bg.png';
-grass.src = 'http://localhost:8000/images/grass.png';
-standL1.src = 'http://localhost:8000/images/standing_l.png';
-standR1.src = 'http://localhost:8000/images/standing_r.png';
-runL1.src = 'http://localhost:8000/images/run_l.png';
-runR1.src = 'http://localhost:8000/images/run_r.png';
-standL2.src = 'http://localhost:8000/images/standing_l2.png';
-standR2.src = 'http://localhost:8000/images/standing_r2.png';
-runL2.src = 'http://localhost:8000/images/run_l2.png';
-runR2.src = 'http://localhost:8000/images/run_r2.png';
-bomb.src = 'http://localhost:8000/images/bomb.png';
-intro.src = 'http://localhost:8000/images/intro.png';
-outro.src = 'http://localhost:8000/images/outro.png';
+platformLarge.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/platform.png';
+platformSmall.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/platform_sml.png';
+bg.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/bg.png';
+grass.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/grass.png';
+standL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_l.png';
+standR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_r.png';
+runL1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_l.png';
+runR1.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_r.png';
+standL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_l2.png';
+standR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/standing_r2.png';
+runL2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_l2.png';
+runR2.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/run_r2.png';
+bomb.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/bomb.png';
+intro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/intro.png';
+outro.src = 'https://raw.githubusercontent.com/Swillycoder/ticktickboom/outro.png';
 
 
 const introDiv = document.getElementById('intro');
