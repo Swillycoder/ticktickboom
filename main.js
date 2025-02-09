@@ -4,9 +4,9 @@ const ctx = canvas.getContext('2d');
 canvas.width = 960;
 canvas.height = 500;
 
-const jump = new Audio('/jump.ogg')
-const music = new Audio('/joyful_jungle.mp3')
-const boom = new Audio('/boom.ogg')
+const jump = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/jump.ogg')
+const music = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/joyful_jungle.mp3')
+const boom = new Audio('https://raw.githubusercontent.com/Swillycoder/ticktickboom/boom.ogg')
 jump.volume = 0.3;
 music.volume = 0.8;
 
