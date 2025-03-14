@@ -1,4 +1,4 @@
-const WebSocket = require('ws');
+import WebSocket from 'ws';
 
 const PORT = process.env.PORT || 3000; // Render assigns a port automatically
 const wss = new WebSocket.Server({ port: PORT });
