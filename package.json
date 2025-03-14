@@ -1,0 +1,15 @@
+{
+  "name": "ticktickboom-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for TickTickBoom multiplayer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ws": "^8.15.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
