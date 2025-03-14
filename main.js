@@ -1,3 +1,4 @@
+/*
 //import WebSocket from 'ws';
 
 const socket = new WebSocket('wss://your-server-url');
@@ -35,7 +36,7 @@ wss.on('connection', ws => {
 
     ws.send('Hello from server');
 });
-
+*/
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
