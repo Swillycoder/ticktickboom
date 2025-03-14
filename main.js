@@ -1,4 +1,15 @@
-import WebSocket from 'ws';
+//import WebSocket from 'ws';
+
+const socket = new WebSocket('wss://your-server-url');
+socket.onopen = function () {
+    console.log('Connected to WebSocket server!');
+};
+socket.onmessage = function (event) {
+    console.log('Message from server: ', event.data);
+};
+socket.onclose = function () {
+    console.log('Disconnected from WebSocket server!');
+};
 
 const PORT = process.env.PORT || 3000; // Render assigns a port automatically
 const wss = new WebSocket.Server({ port: PORT });
