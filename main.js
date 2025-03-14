@@ -1,3 +1,30 @@
+const WebSocket = require('ws');
+
+const PORT = process.env.PORT || 3000; // Render assigns a port automatically
+const wss = new WebSocket.Server({ port: PORT });
+
+console.log(`WebSocket server started on port ${PORT}`);
+
+wss.on('connection', ws => {
+    console.log('New client connected');
+
+    ws.on('message', message => {
+        console.log(`Received: ${message}`);
+        // Broadcast message to all connected clients
+        wss.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(message);
+            }
+        });
+    });
+
+    ws.on('close', () => {
+        console.log('Client disconnected');
+    });
+
+    ws.send('Hello from server');
+});
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
